@@ -17,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Api api= ApiClient.getClient().create(Api.class);
-        Call<Model> getModel= api.getWether(33.441792,-94.037689,"hourly","b6f94d287e2fd91e15145b44093b98fa");
+        Call<Model> getModel= api.getWether(33.441792,-94.037689,"b6f94d287e2fd91e15145b44093b98fa");
         getModel.enqueue(new Callback<Model>() {
             @Override
             public void onResponse(Call<Model> call, Response<Model> response) {
                 if(response.isSuccessful()){
-                    String result= String.valueOf(response.body().getCoord());
-                    Toast.makeText(MainActivity.this,result,Toast.LENGTH_SHORT).show();
+                    Model model= response.body();
+                    Toast.makeText(MainActivity.this,model.weather.get(0).description,Toast.LENGTH_SHORT).show();
                 }
             }
 

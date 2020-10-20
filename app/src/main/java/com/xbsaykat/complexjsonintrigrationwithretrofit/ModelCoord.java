@@ -3,14 +3,14 @@ package com.xbsaykat.complexjsonintrigrationwithretrofit;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class modelCoord {
+public class ModelCoord {
     @SerializedName("lon")
     @Expose
-    double lon;
+    public double lon;
 
     @SerializedName("lat")
     @Expose
-    double lat;
+    public double lat;
 
     public double getLon() {
         return lon;
